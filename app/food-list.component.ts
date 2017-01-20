@@ -11,6 +11,7 @@ import { Food } from './food.model';
 </select>
 <ul>
  <li *ngFor="let currentFood of childFoodList | calorie:filterByCalories">{{currentFood.description}} {{currentFood.food}}
+  <button (click)="editButtonHasBeenClicked(currentFood)">Edit!</button>
  </li>
 </ul>
   `
@@ -24,6 +25,7 @@ export class FoodListComponent {
 
  editButtonHasBeenClicked(foodToEdit: Food) {
     this.clickSender.emit(foodToEdit);
+    
   }
   onChange(optionFromMenu) {
     this.filterByCalories = optionFromMenu;

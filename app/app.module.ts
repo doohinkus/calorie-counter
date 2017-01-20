@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
 import { FormsModule }  from '@angular/forms';
 import { FoodListComponent }  from './food-list.component';
-// import { EditTaskComponent } from './edit-task.component';
+import { EditFoodComponent } from './edit-food.component';
 import { NewFoodComponent } from './new-food.component';
 import { CaloriePipe } from './calorie.pipe';
 
@@ -14,6 +14,7 @@ import { CaloriePipe } from './calorie.pipe';
   declarations: [ AppComponent,
                   FoodListComponent,
                   NewFoodComponent,
+                  EditFoodComponent,
                  CaloriePipe],
   bootstrap:    [ AppComponent ]
 })

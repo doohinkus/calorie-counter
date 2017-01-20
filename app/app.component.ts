@@ -6,9 +6,11 @@ import { Food } from './food.model';
   template: `
   <div class="container">
       <h1>Calorie Counter</h1>
-      <food-list [childFoodList]="masterFoodList"></food-list>
+      <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
+      <edit-food [childSelectedFood]="selectedFood" (doneClickedSender)="finishedEditing()"></edit-food>
       <hr>
       <new-food (newFoodSender)="addFood($event)"></new-food>
+
 
   </div>
   `
@@ -28,9 +30,15 @@ export class AppComponent {
   ];
   editFood(clickedFood) {
     this.selectedFood = clickedFood;
+  
   }
   addFood(newFoodFromChild: Food) {
    this.masterFoodList.push(newFoodFromChild);
  }
+
+
+  finishedEditing() {
+    this.selectedFood = null;
+  }
 
 }
