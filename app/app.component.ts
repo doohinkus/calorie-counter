@@ -6,11 +6,10 @@ import { Food } from './food.model';
   template: `
   <div class="container">
       <h1>Calorie Counter</h1>
-      <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
-      <edit-food [childSelectedFood]="selectedFood" (doneButtonClickedSender)="finishedEditing()"></edit-food>
-      <hr>
       <new-food (newFoodSender)="addFood($event)"></new-food>
-
+      <edit-food [childSelectedFood]="selectedFood" (doneButtonClickedSender)="finishedEditing()"></edit-food>
+      <food-list [childFoodList]="masterFoodList" (clickSender)="editFood($event)"></food-list>
+      <hr>
 
   </div>
   `
@@ -39,7 +38,6 @@ export class AppComponent {
 
   finishedEditing() {
     this.selectedFood = null;
-    console.log("hit it!!!")
   }
 
 }
