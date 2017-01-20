@@ -1,43 +1,35 @@
 import { Component } from '@angular/core';
-import { Task } from './task.model';
+import { Food } from './food.model';
 
 @Component({
   selector: 'app-root',
   template: `
   <div class="container">
-      <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>
-      <h3>{{currentFocus}}</h3>
-      <task-list [childTaskList]="masterTaskList" (clickSender)="editTask($event)"></task-list>
+      <h1>Calorie Counter</h1>
+      <food-list [childFoodList]="masterFoodList"></food-list>
       <hr>
-      <edit-task [childSelectedTask]="selectedTask" (doneClickedSender)="finishedEditing()"></edit-task>
-      <new-task (newTaskSender)="addTask($event)"></new-task>
+      <new-food (newFoodSender)="addFood($event)"></new-food>
+
   </div>
   `
 })
 
 export class AppComponent {
-  currentFocus: string = 'Angular Homework';
-  currentTime = new Date();
-  month: number = this.currentTime.getMonth() + 1;
-  day: number = this.currentTime.getDate();
-  year: number = this.currentTime.getFullYear();
-  selectedTask = null;
 
-  masterTaskList: Task[] = [
-    new Task('Finish weekend Angular homework for Epicodus course', 3),
-    new Task('Begin brainstorming possible JavaScript group projects', 2),
-    new Task('Add README file to last few Angular repos on GitHub', 2)
+  selectedFood = null;
+
+
+  masterFoodList: Food[] = [
+  new Food('Donut', 'Old Fashioned Glazed donut from Joe\'s Donuts in Sandy', 200),
+  new Food('Potatoe Chips', 'Kettle Cooked Potatoe Chips from Cape Cod', 200),
+  new Food('Veggie Burger', 'Vegan Hamburger from Joe\'s Vegan Place in Sandy', 300)
+
   ];
-
-  editTask(clickedTask) {
-    this.selectedTask = clickedTask;
+  editFood(clickedFood) {
+    this.selectedFood = clickedFood;
   }
-
-  finishedEditing() {
-    this.selectedTask = null;
-  }
-  addTask(newTaskFromChild: Task) {
-   this.masterTaskList.push(newTaskFromChild);
+  addFood(newFoodFromChild: Food) {
+   this.masterFoodList.push(newFoodFromChild);
  }
 
 }

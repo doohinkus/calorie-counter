@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from './task.model';
+import { Food } from './food.model';
 
 @Component({
   selector: 'edit-task',
